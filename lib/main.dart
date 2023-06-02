@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungry_bruno_puneet_shetty/features/home/home_screen.dart';
+import 'package:hungry_bruno_puneet_shetty/router.dart';
+import 'package:routemaster/routemaster.dart';
 
 import 'theme/pallete.dart';
 
@@ -13,10 +15,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: Pallete.lightModeAppTheme,
-      home: const HomeScreen(),
+      routeInformationParser: const RoutemasterParser(),
+      routerDelegate:
+          RoutemasterDelegate(routesBuilder: (context) => AppRouter.routes),
     );
   }
 }

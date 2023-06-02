@@ -6,8 +6,8 @@ class Pallete {
   static const drawerColor = Color.fromRGBO(18, 18, 18, 1);
   static const whiteColor = Colors.white;
   static var redColor = Colors.red.shade500;
-  static var greenColor = Color.fromARGB(1, 62, 139, 58);
-
+  static var greenColor = Color.fromRGBO(62, 139, 58, 1);
+  static var textColor = const Color.fromRGBO(60, 60, 60, 1);
   static var lightModeAppTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: whiteColor,
     cardColor: greyColor,
