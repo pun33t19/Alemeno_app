@@ -6,10 +6,10 @@ class Pallete {
   static const drawerColor = Color.fromRGBO(18, 18, 18, 1);
   static const whiteColor = Colors.white;
   static var redColor = Colors.red.shade500;
-  static var greenColor = Color.fromRGBO(62, 139, 58, 1);
+  static var greenColor = const Color.fromRGBO(62, 139, 58, 1);
   static var textColor = const Color.fromRGBO(60, 60, 60, 1);
-  static var cardColor = Color.fromRGBO(244, 244, 244, 1);
-  static var cameraCardColor = Color.fromRGBO(64, 64, 64, 1);
+  static var cardColor =const Color.fromRGBO(244, 244, 244, 1);
+  static var cameraCardColor = const Color.fromRGBO(64, 64, 64, 1);
 
   static var lightModeAppTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: whiteColor,
