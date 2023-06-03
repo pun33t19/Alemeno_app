@@ -1,11 +1,14 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:hungry_bruno_puneet_shetty/common/constants.dart';
 import 'package:hungry_bruno_puneet_shetty/common/widgets/circular_button.dart';
 import 'package:hungry_bruno_puneet_shetty/common/widgets/primary_text.dart';
 import 'package:hungry_bruno_puneet_shetty/features/share/widgets/sideways_border.dart';
 import 'package:hungry_bruno_puneet_shetty/features/share/widgets/top_camera_border.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/camera_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/theme/pallete.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../widgets/common_image.dart';
@@ -18,6 +21,28 @@ class LandClickScreen extends StatefulWidget {
 }
 
 class _LandClickScreenState extends State<LandClickScreen> {
+  late CameraController _controller;
+  late Future<void> _initializeControllerFuture;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    final CameraDescription? camera =
+        Provider.of<CameraProvider>(context, listen: false).camera;
+
+    _controller = CameraController(
+      // Get a specific camera from the list of available cameras.
+      camera!,
+      // Define the resolution to use.
+      ResolutionPreset.medium,
+    );
+
+    // Next, initialize the controller. This returns a Future.
+    _initializeControllerFuture = _controller.initialize();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +110,26 @@ class _LandClickScreenState extends State<LandClickScreen> {
                                           color: Pallete.cameraCardColor,
                                           borderRadius:
                                               BorderRadius.circular(100)),
+                                      child: FutureBuilder(
+                                          future: _initializeControllerFuture,
+                                          builder: (context, snapShot) {
+                                            if (snapShot.connectionState ==
+                                                ConnectionState.done) {
+                                              return ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(100),
+                                                child: AspectRatio(
+                                                  aspectRatio: 1,
+                                                  child: CameraPreview(
+                                                      _controller),
+                                                ),
+                                              );
+                                            } else {
+                                              return const Center(
+                                                  child:
+                                                      CircularProgressIndicator());
+                                            }
+                                          }),
                                     ),
                                     const SidewaysBorder()
                                   ],
