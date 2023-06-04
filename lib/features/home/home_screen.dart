@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                 width: 188,
                 height: 50,
                 onClick: () => Routemaster.of(context)
-                    .push(Constants.landShareScreenRoute)),
+                    .push(Constants.landClickScreenRoute)),
             const SizedBox(
               height: 92,
             )

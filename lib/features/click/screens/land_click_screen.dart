@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:hungry_bruno_puneet_shetty/common/constants.dart';
 import 'package:hungry_bruno_puneet_shetty/common/widgets/circular_button.dart';
 import 'package:hungry_bruno_puneet_shetty/common/widgets/primary_text.dart';
-import 'package:hungry_bruno_puneet_shetty/features/share/widgets/sideways_border.dart';
-import 'package:hungry_bruno_puneet_shetty/features/share/widgets/top_camera_border.dart';
+import 'package:hungry_bruno_puneet_shetty/features/click/widgets/sideways_border.dart';
+import 'package:hungry_bruno_puneet_shetty/features/click/widgets/top_camera_border.dart';
 import 'package:hungry_bruno_puneet_shetty/providers/camera_provider.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/clicked_image_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/theme/pallete.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +30,7 @@ class _LandClickScreenState extends State<LandClickScreen> {
     // TODO: implement initState
     super.initState();
 
+    //get the available cameras stored from the provider
     final CameraDescription? camera =
         Provider.of<CameraProvider>(context, listen: false).camera;
 
@@ -159,7 +161,24 @@ class _LandClickScreenState extends State<LandClickScreen> {
                     ),
                     CircularButton(
                         icon: Constants.cameraImageAddress,
-                        onClick: () {},
+                        onClick: () async {
+                          try {
+                            await _initializeControllerFuture;
+                            // Attempt to take a picture and get the file `image`
+                            // where it was saved.
+                            final image = await _controller.takePicture();
+
+                            if (!mounted) return;
+
+                            Provider.of<ClickedImageProvider>(context,
+                                    listen: false)
+                                .setImage(image);
+                            Routemaster.of(context)
+                                .push(Constants.landShareScreenRoute);
+                          } catch (e) {
+                            debugPrint(e.toString());
+                          }
+                        },
                         size: const Size(60, 60))
                   ],
                 ),

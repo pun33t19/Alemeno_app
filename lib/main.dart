@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:hungry_bruno_puneet_shetty/providers/camera_provider.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/clicked_image_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/router.dart';
 import 'package:provider/provider.dart';
 import 'package:routemaster/routemaster.dart';
@@ -15,7 +16,10 @@ Future<void> main() async {
   final firstCamera = cameras.first;
 
   runApp(MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => CameraProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => CameraProvider()),
+        ChangeNotifierProvider(create: (_) => ClickedImageProvider())
+      ],
       child: MyApp(
         camera: firstCamera,
       )));
