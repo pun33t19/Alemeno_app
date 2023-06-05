@@ -72,7 +72,7 @@ class _LandClickScreenState extends State<LandClickScreen> {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 27),
+                padding: const EdgeInsets.symmetric(horizontal: 22),
                 decoration: BoxDecoration(
                     color: Pallete.cardColor,
                     borderRadius: const BorderRadius.only(
@@ -90,10 +90,10 @@ class _LandClickScreenState extends State<LandClickScreen> {
                           ),
                         ),
                         const SizedBox(
-                          width: 15,
+                          width: 10,
                         ),
                         Container(
-                          width: 220,
+                          width: 210,
                           height: 207,
                           margin: const EdgeInsets.only(top: 53),
                           child: Column(

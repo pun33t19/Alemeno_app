@@ -81,7 +81,10 @@ class _LandShareScreenState extends State<LandShareScreen> {
                     ),
                     CircularButton(
                         icon: Constants.tickImageAddress,
-                        onClick: () {},
+                        onClick: () {
+                          Routemaster.of(context)
+                              .push(Constants.messageScreenRoute);
+                        },
                         size: const Size(60, 60))
                   ],
                 ),
