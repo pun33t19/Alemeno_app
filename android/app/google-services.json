@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "974108999646",
+    "project_id": "hungry-bruno",
+    "storage_bucket": "hungry-bruno.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974108999646:android:6b074bfe442cfc48f2674f",
+        "android_client_info": {
+          "package_name": "com.example.hungry_bruno_puneet_shetty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974108999646-2319n0qssk8c7o9c615t7bdfubn3q73f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2AJxyB_OwD0qtvE_m5jxtOuGCcEeYUS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974108999646-2319n0qssk8c7o9c615t7bdfubn3q73f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

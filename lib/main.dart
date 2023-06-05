@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hungry_bruno_puneet_shetty/providers/camera_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/providers/clicked_image_provider.dart';
@@ -6,6 +7,7 @@ import 'package:hungry_bruno_puneet_shetty/router.dart';
 import 'package:provider/provider.dart';
 import 'package:routemaster/routemaster.dart';
 
+import 'firebase_options.dart';
 import 'theme/pallete.dart';
 
 Future<void> main() async {
@@ -14,6 +16,10 @@ Future<void> main() async {
 
   // Get a specific camera from the list of available cameras.
   final firstCamera = cameras.first;
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(MultiProvider(
       providers: [
