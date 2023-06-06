@@ -35,6 +35,8 @@ I tried to gamify the approach with maintaining score and the size of animal inc
         </td>
     </tr>
 </table>
+                                                                                               
+                                                                                                                    
 ## Features
 
 - Feed the animal by clicking image
