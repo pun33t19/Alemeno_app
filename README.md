@@ -42,5 +42,9 @@ I tried to gamify the approach with maintaining score and the size of animal inc
 - Feed the animal by clicking image
 - A score is maintained
 - Fullscreen mode
+- Notifications service
+- Camera Service
 - Cross platform
+                                                                                               
+
 
