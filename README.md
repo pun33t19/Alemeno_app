@@ -28,7 +28,7 @@ I tried to gamify the approach with maintaining score and the size of animal inc
             <img src='images/message_screen.jpg' alt='Message Screen'>
         </td>
        
-    </tr>
+   
 </table>
                                                                                                
                                                                                                                     
