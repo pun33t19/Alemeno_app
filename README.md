@@ -9,30 +9,25 @@ I tried to gamify the approach with maintaining score and the size of animal inc
 ## ScreenShots
 
 <table>
-    <tr>
+     <tr>
         <td>
-            <img src='images/intro.png' alt='Intro Screen'>
+            <img src='images/land_screen.jpg' alt='Land Screen'>
         </td>
         <td>
-            <img src='images/home.png' alt='Home Screen'>
+            <img src='images/click_screen_1.jpg' alt='Click Screen 1'>
         </td>
         <td>
-            <img src='images/writing.png' alt='Writing Screen'>
+            <img src='images/click_screen_2.jpg' alt='Click Screen 2'>
         </td>
         <td>
-            <img src='images/share_image.png' alt='Screen to get image'>
+            <img src='images/share_screen.jpg' alt='Share Screen'>
         </td>
     </tr>
     <tr>
         <td>
-            <img src='images/customize_color.png' alt='Can modify background gradient'>
+            <img src='images/message_screen.jpg' alt='Message Screen'>
         </td>
-        <td>
-            <img src='images/share_in_parts.png' alt='Sharing more than 1 image at a time'>
-        </td>
-        <td>
-            <img src='images/reader_mode.png' alt='Reader mode so keyboard won\'t disturb you '>
-        </td>
+       
     </tr>
 </table>
                                                                                                
