@@ -7,6 +7,7 @@ import 'package:hungry_bruno_puneet_shetty/features/click/widgets/sideways_borde
 import 'package:hungry_bruno_puneet_shetty/features/click/widgets/top_camera_border.dart';
 import 'package:hungry_bruno_puneet_shetty/providers/camera_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/providers/clicked_image_provider.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/score_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/theme/pallete.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,6 @@ class _LandClickScreenState extends State<LandClickScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     //get the available cameras stored from the provider
@@ -47,26 +47,43 @@ class _LandClickScreenState extends State<LandClickScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int currentScore = Provider.of<ScoreProvider>(context).score;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 24, left: 24),
-              child: CircularButton(
-                  icon: Constants.arrowImageAddress,
-                  size: const Size(45, 45),
-                  onClick: () {
-                    Routemaster.of(context).pop();
-                  }),
+              padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircularButton(
+                      icon: Constants.arrowImageAddress,
+                      size: const Size(45, 45),
+                      onClick: () {
+                        Routemaster.of(context).pop();
+                      }),
+                  Consumer<ScoreProvider>(
+                    builder: (context, value, child) {
+                      return PrimaryText(
+                          text: "Score: ${value.score.toString()}",
+                          fontSize: 22);
+                    },
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
-            Center(
-                child: Lottie.asset(Constants.cuteTigerAnimationAddress,
-                    height: 200)),
+            SizedBox(
+              height: 200,
+              child: Center(
+                  child: Lottie.asset(Constants.cuteTigerAnimationAddress,
+                      height: 5 * currentScore * 1.0)),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -82,6 +99,7 @@ class _LandClickScreenState extends State<LandClickScreen> {
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(top: 80),

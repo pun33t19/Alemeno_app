@@ -5,6 +5,9 @@ import 'package:camera/camera.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:hungry_bruno_puneet_shetty/common/constants.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/notifications_provider.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/score_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:routemaster/routemaster.dart';
 
 class ClickedImageProvider extends ChangeNotifier {
@@ -28,6 +31,9 @@ class ClickedImageProvider extends ChangeNotifier {
             // ...
             break;
           case TaskState.success:
+            Provider.of<NotificationsProvider>(context, listen: false)
+                .showNotification();
+            Provider.of<ScoreProvider>(context, listen: false).incrementScore();
             Routemaster.of(context).push(Constants.messageScreenRoute);
             break;
           case TaskState.canceled:

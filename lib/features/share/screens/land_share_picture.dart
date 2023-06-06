@@ -6,6 +6,7 @@ import 'package:hungry_bruno_puneet_shetty/common/widgets/circular_button.dart';
 import 'package:hungry_bruno_puneet_shetty/common/widgets/primary_text.dart';
 
 import 'package:hungry_bruno_puneet_shetty/providers/clicked_image_provider.dart';
+import 'package:hungry_bruno_puneet_shetty/providers/score_provider.dart';
 import 'package:hungry_bruno_puneet_shetty/theme/pallete.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,8 @@ class LandShareScreen extends StatefulWidget {
 class _LandShareScreenState extends State<LandShareScreen> {
   @override
   Widget build(BuildContext context) {
+    int currentScore = Provider.of<ScoreProvider>(context).score;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -38,9 +41,12 @@ class _LandShareScreenState extends State<LandShareScreen> {
             const SizedBox(
               height: 10,
             ),
-            Center(
-                child: Lottie.asset(Constants.cuteTigerAnimationAddress,
-                    height: 200)),
+            SizedBox(
+              height: 200,
+              child: Center(
+                  child: Lottie.asset(Constants.cuteTigerAnimationAddress,
+                      height: 5 * currentScore * 1.0)),
+            ),
             const SizedBox(
               height: 20,
             ),
