@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hungry_bruno_puneet_shetty">
    <application
-        android:label="hungry_bruno_puneet_shetty"
+        android:label="HungryBrunoPuneetShetty"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
